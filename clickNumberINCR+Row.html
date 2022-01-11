@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="/Script.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body ng-controller="myController">
+   Row Display: <input type="number" step="1" min="0" max="5" ng-model="rowLimit">
+    <table>
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>DAteOfBirth</th>
+                <th>Gender</th>
+                <th>Salary</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+                <tr ng-repeat="employees in employee| limitTo:rowLimit">
+                
+                    <td>{{employees.name}}</td>
+                    <td>{{employees.dateOfBirth|date:"dd/mm/yyyy"}}</td>
+                    <td>{{employees.gender}}</td>
+                    <td>{{employees.salary}}</td>
+                
+                </tr>
+           </tbody>
+    </table>
+</body>
+</html>
+=============================================================style.css========================
+table{
+    border-collapse: collapse;
+    font-family: arial;
+}
+td{
+    border: 1px solid black;
+    padding: 5px;
+}
+th{
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+============================================================script.js===========================
+var x=angular
+.module("myModule",[])
+.controller("myController",function($scope){
+    var employee=[
+       {name:"Ben",dateOfBirth:new Date("November,23,1998"),gender:"Male",salary:4000},
+       {name:"Ben",dateOfBirth:new Date("November,23,1998"),gender:"Male",salary:4000},
+       {name:"Ben",dateOfBirth:new Date("November,23,1998"),gender:"Male",salary:4000},
+       {name:"Ben",dateOfBirth:new Date("November,23,1998"),gender:"Male",salary:4000},
+       {name:"Ben",dateOfBirth:new Date("November,23,1998"),gender:"Male",salary:4000},
+       {name:"Ben",dateOfBirth:new Date("November,23,1998"),gender:"Male",salary:4000}
+
+    ]
+    $scope.employee=employee;
+    $scope.rowLimit=3;
+});
+
+
