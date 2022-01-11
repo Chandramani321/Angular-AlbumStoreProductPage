@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="/Script.js"></script>
+
+</head>
+<body >
+   <div ng-controller="myController">
+     <table>
+         <thead>
+             <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Gender</th>
+                <th>Salary</th>
+             </tr>
+         </thead>
+         <tbody >
+            <tr ng-repeat="employee in employees">
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.salary}}</td>
+            </tr>
+         </tbody>
+     </table>
+    
+   </div>
+  
+</body>
+</html>
+
+
+==========================================================================
+Script.js
+var x=angular
+.module("myModule",[])
+.controller("myController",function($scope){
+    var employees=[
+
+        {firstName:"Ben",lastName:"Hasting", gender:"Male",salary:"10000"},
+        {firstName:"Mukes",lastName:"Hasting", gender:"Male",salary:"1010"},
+        {firstName:"Anshu",lastName:"PAnday", gender:"Female",salary:"12300"},
+        {firstName:"Shiv",lastName:"Tiwari", gender:"Male",salary:"1000"},
+        {firstName:"akash",lastName:"Hasting", gender:"female",salary:"5000"},
+        {firstName:"vikas",lastName:"Shukla", gender:"Male",salary:"1030"}
+
+        
+
+    ]
+   
+    $scope.employees=employees;
+   
+});
+
+
+
